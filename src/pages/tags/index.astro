@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Tag from "@/components/Tag.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import getUniqueTags from "@/utils/getUniqueTags";
+import { SITE } from "@/config";
+import { TAGS, getTagDefinition } from "@/data/tags";
+
+const posts = await getCollection("blog");
+const usedTagSlugs = new Set(getUniqueTags(posts).map(({ tag }) => tag));
+
+const definedTags = TAGS.filter(({ slug }) => usedTagSlugs.has(slug)).map(
+  ({ slug, name, description }) => ({
+    tag: slug,
+    tagName: name,
+    description,
+  })
+);
+
+const extraTags = getUniqueTags(posts)
+  .filter(({ tag }) => !getTagDefinition(tag))
+  .map(({ tag, tagName }) => ({ tag, tagName, description: "" }));
+
+const tags = [...definedTags, ...extraTags];
+---
+
+<Layout title={`Tags | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+    <ul class="flex flex-col gap-4">
+      {
+        tags.map(({ tag, tagName, description }) => (
+          <li class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3">
+            <ul class="flex">
+              <Tag {tag} {tagName} />
+            </ul>
+            {description && (
+              <span class="text-sm opacity-80">{description}</span>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

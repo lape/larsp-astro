@@ -1,0 +1,23 @@
+export const SITE = {
+  website: "https://larsp.de/",
+  author: "Lars Peters",
+  profile: "https://larsp.de/",
+  desc: "Digital garden about web development, Ruby on Rails, telephony, and tools Lars finds useful.",
+  title: "larsp.de",
+  ogImage: "astropaper-og.jpg",
+  lightAndDarkMode: true,
+  postPerIndex: 4,
+  postPerPage: 20,
+  scheduledPostMargin: 15 * 60 * 1000,
+  showArchives: true,
+  showBackButton: true,
+  editPost: {
+    enabled: false,
+    text: "Edit page",
+    url: "",
+  },
+  dynamicOgImage: true,
+  dir: "ltr",
+  lang: "en",
+  timezone: "Europe/Berlin",
+} as const;
