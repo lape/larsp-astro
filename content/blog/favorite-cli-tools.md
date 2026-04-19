@@ -3,7 +3,6 @@ title: "Favorite CLI Tools"
 author: "Lars Peters"
 pubDatetime: 2025-11-12T00:00:00Z
 description: "Command line tool recommendations that save time and improve developer workflows. A curated collection of CLI tools including bat, HTTPie, jq, and others that I find essential for daily work."
-ogImage: "/images/posts/favorite-cli-tools/cover.jpg"
 tags: ["Tools", "Resources"]
 ---
 
