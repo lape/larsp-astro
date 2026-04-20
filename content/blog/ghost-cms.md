@@ -8,11 +8,11 @@ tags: ["CMS"]
 
 My favorite open-source CMS for content sites
 
-[Ghost](https://ghost.org/?ref=larsp.de) is a fantastic open-source, headless Node.js CMS and my go-to system for setting up content sites (e.g. my German consulting business site [itpeters.com](https://itpeters.com/?ref=larsp.de) or my private travel logbook [reisepedia.de](https://reisepedia.de/?ref=larsp.de)). Essentially, it's a customizable platform for running blogs, magazines, or journals. It's fully [open-source](https://github.com/TryGhost/Ghost?ref=larsp.de) and runs blogs from OpenAI, DigitalOcean, Mozilla and many other big names.
+[Ghost](https://ghost.org/) is a fantastic open-source, headless Node.js CMS and my go-to system for setting up content sites (e.g. my German consulting business site [itpeters.com](https://itpeters.com/) or my private travel logbook [reisepedia.de](https://reisepedia.de/)). Essentially, it's a customizable platform for running blogs, magazines, or journals. It's fully [open-source](https://github.com/TryGhost/Ghost) and runs blogs from OpenAI, DigitalOcean, Mozilla and many other big names.
 
-The Ghost Foundation is offering a hosted version of Ghost, so it's accessible for non-technical content creators. This is really great and should be used by all means, if you don't want to deal with the technical aspects of running a web server. For me, however, it comes natural to set up a Ghost instance on my own server with the [offical Docker image](https://hub.docker.com/_/ghost/?ref=larsp.de) and [Dokku](https://larsp.de/dokku-open-source-heroku-alternative/).
+The Ghost Foundation is offering a hosted version of Ghost, so it's accessible for non-technical content creators. This is really great and should be used by all means, if you don't want to deal with the technical aspects of running a web server. For me, however, it comes natural to set up a Ghost instance on my own server with the [offical Docker image](https://hub.docker.com/_/ghost/) and [Dokku](/posts/dokku-open-source-heroku-alternative/).
 
-There are also a ton of themes for purchase (and for free!) on [Ghost's official website](https://ghost.org/themes/?ref=larsp.de). I personally like the themes from [Bright Themes](https://brightthemes.com/?ref=larsp.de), which are very well designed and easy to customize. They offer a lifetime license for all themes, which I think is a fantastic deal. This site uses the [Array](https://brightthemes.com/themes/array?ref=larsp.de) theme by Bright Themes.
+There are also a ton of themes for purchase (and for free!) on [Ghost's official website](https://ghost.org/themes/). I personally like the themes from [Bright Themes](https://brightthemes.com/), which are very well designed and easy to customize. They offer a lifetime license for all themes, which I think is a fantastic deal. This site uses the [Array](https://brightthemes.com/themes/array) theme by Bright Themes.
 
 ![Ghost CMS admin dashboard](/images/posts/ghost-cms/ghost-admin.png)
 
@@ -31,9 +31,9 @@ There are also a ton of themes for purchase (and for free!) on [Ghost's official
 
 ## Links
 
-- [A complete guide to code snippets](https://ghost.org/tutorials/code-snippets-in-ghost/?ref=larsp.de)
-- [How to Add Syntax Highlighting to Ghost](https://brightthemes.com/blog/ghost-syntax-highlighting?ref=larsp.de)
-- [Adding an Edit link to Ghost posts](https://baty.net/posts/2024/11/adding-an-edit-link-to-ghost-posts/?ref=larsp.de)
+- [A complete guide to code snippets](https://ghost.org/tutorials/code-snippets-in-ghost/)
+- [How to Add Syntax Highlighting to Ghost](https://brightthemes.com/blog/ghost-syntax-highlighting)
+- [Adding an Edit link to Ghost posts](https://baty.net/posts/2024/11/adding-an-edit-link-to-ghost-posts/)
 
 ## Notes
 
@@ -58,7 +58,7 @@ There are also a ton of themes for purchase (and for free!) on [Ghost's official
 ### Code word wrap
 
 ```css
-code[class*="language-"], 
+code[class*="language-"],
 pre[class*="language-"] {
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -68,7 +68,7 @@ pre[class*="language-"] {
 
 /* Mobile responsive adjustments */
 @media screen and (max-width: 768px) {
-    code[class*="language-"], 
+    code[class*="language-"],
     pre[class*="language-"] {
         font-size: 0.85em;
         line-height: 1.3;

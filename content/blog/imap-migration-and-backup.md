@@ -29,7 +29,7 @@ Flags I actually use:
 --regextrans2 s/Sent Items/Sent/  # rename folders
 ```
 
-[imapsync.lamiral.info](https://imapsync.lamiral.info/?ref=larsp.de)
+[imapsync.lamiral.info](https://imapsync.lamiral.info/)
 
 ## imap-backup
 
@@ -41,7 +41,7 @@ imap-backup setup    # interactive config
 imap-backup backup   # run it
 ```
 
-[github.com/joeyates/imap-backup](https://github.com/joeyates/imap-backup?ref=larsp.de)
+[github.com/joeyates/imap-backup](https://github.com/joeyates/imap-backup)
 
 ## Gotchas
 

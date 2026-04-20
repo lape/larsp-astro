@@ -8,7 +8,7 @@ tags: ["Ruby on Rails"]
 
 Using Barby and Prawn to imprint PDFs with individual barcodes
 
-For a [Rails](https://larsp.de/ruby-on-rails-resources/) project, I researched methods to generate individual PDFs with imprinted EAN barcodes. This guide documents a working approach using modern Ruby libraries.
+For a [Rails](/posts/ruby-on-rails-resources/) project, I researched methods to generate individual PDFs with imprinted EAN barcodes. This guide documents a working approach using modern Ruby libraries.
 
 ## Libraries Used
 

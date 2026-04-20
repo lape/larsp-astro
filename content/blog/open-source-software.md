@@ -16,7 +16,7 @@ Recommendable (web) applications
 
 ## CMS
 
-- **[Ghost CMS](https://larsp.de/ghost-cms/)** - An open-source CMS favored for content sites
+- **[Ghost CMS](/posts/ghost-cms/)** - An open-source CMS favored for content sites
 - **[Writebook](https://once.com/writebook)** - Publish your own books on the web for free
 
 ## Development
@@ -34,7 +34,7 @@ Recommendable (web) applications
 ## Hosting
 
 - **[Databasus](https://databasus.com/)** - Free tool for PostgreSQL scheduled backups with cloud storage and notifications
-- **[Dokku](https://larsp.de/dokku-open-source-heroku-alternative/)** - Self-hosted open-source PaaS alternative to Heroku
+- **[Dokku](/posts/dokku-open-source-heroku-alternative/)** - Self-hosted open-source PaaS alternative to Heroku
 - **[copyparty](https://github.com/9001/copyparty)** - Portable file server with WebDAV, FTP, TFTP, and media indexing
 
 ## Mail

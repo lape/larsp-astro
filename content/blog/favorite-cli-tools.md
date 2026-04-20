@@ -8,11 +8,11 @@ tags: ["Tools", "Resources"]
 
 Command line tool recommendations
 
-These CLI tools save me lots of time and I find them generally a joy to work with. It's all about sharing the love and magic, and maybe you'll find a new favorite or two. Let me [know](https://larsp.de/contact/) if you have a CLI tool that brings you joy - or comment below.
+These CLI tools save me lots of time and I find them generally a joy to work with. It's all about sharing the love and magic, and maybe you'll find a new favorite or two. Let me [know](https://ruby.social/@lape) if you have a CLI tool that brings you joy - or comment below.
 
 ## bat - a cat(1) clone with wings
 
-I love this. It's a drop-in replacement for `cat` that adds syntax highlighting, Git integration and lots more. It's written in Rust and is blazing fast. [sharkdp/bat: A cat(1) clone with wings](https://github.com/sharkdp/bat?ref=larsp.de).
+I love this. It's a drop-in replacement for `cat` that adds syntax highlighting, Git integration and lots more. It's written in Rust and is blazing fast. [sharkdp/bat: A cat(1) clone with wings](https://github.com/sharkdp/bat).
 
 ### How to use bat
 
@@ -26,7 +26,7 @@ The syntax highlighting and file-specific metadata make `bat` a joy to use, ensu
 
 ## Claude Code
 
-Even though it's more application than classic tool, my favorite command line tool has recently become [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview?ref=larsp.de) (also see [AI/LLM index page](https://larsp.de/ai-llm-resources/)).
+Even though it's more application than classic tool, my favorite command line tool has recently become [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) (also see [AI/LLM index page](/posts/ai-llm-resources/)).
 
 ## Homebrew - The missing macOS package manager
 
@@ -45,7 +45,7 @@ brew install <package>
 
 Making HTTP requests from the command line has never been more elegant than with httpie. It simplifies interaction with APIs and web services, offering a user-friendly interface and an eye-pleasing HTTP request syntax colorization.
 
-There also is a very neat [httpie desktop application](https://httpie.io/desktop?ref=larsp.de)!
+There also is a very neat [httpie desktop application](https://httpie.io/desktop)!
 
 ### Crafting requests with httpie
 
@@ -88,7 +88,7 @@ This will present just the links from the JSON response. `jq` is nice for quickl
 
 ## kopia - Fast and Secure Open-Source Backup Software
 
-Encrypted backups with [kopia](https://kopia.io/?ref=larsp.de) to Amazon S3 and any cloud storage that is compatible with S3, Azure Blob Storage, Backblaze B2, Google Cloud Storage, WebDAV, SFTP, Rclone.
+Encrypted backups with [kopia](https://kopia.io/) to Amazon S3 and any cloud storage that is compatible with S3, Azure Blob Storage, Backblaze B2, Google Cloud Storage, WebDAV, SFTP, Rclone.
 
 ### Creating a repository (e.g. SFTP)
 
@@ -117,7 +117,7 @@ kopia snapshot create $HOME/Projects/github.com/kopia/kopia
 
 ## lando - Local development environment and DevOps tool built on Docker containers
 
-For local development, [lando](https://lando.dev/?ref=larsp.de) is mighty. It configures and manages Docker-based development environments, providing an abstraction layer that spares developers the mundanity of configuring development Docker environments and installing necessary tools and software versions.
+For local development, [lando](https://lando.dev/) is mighty. It configures and manages Docker-based development environments, providing an abstraction layer that spares developers the mundanity of configuring development Docker environments and installing necessary tools and software versions.
 
 ### A lando starter
 
@@ -131,17 +131,17 @@ And with that simple command, you're on your way to local Wordpress development 
 
 ## lazygit - Terminal UI Git Command Manager
 
-[lazygit](https://github.com/jesseduffield/lazygit?ref=larsp.de) is a simple yet powerful terminal UI with Norton Commander vibes that transforms how you interact with Git, making complex operations accessible through intuitive keyboard shortcuts.
+[lazygit](https://github.com/jesseduffield/lazygit) is a simple yet powerful terminal UI with Norton Commander vibes that transforms how you interact with Git, making complex operations accessible through intuitive keyboard shortcuts.
 
 It reduces context switching. Instead of running multiple commands and checking different windows, everything is visible in one organized interface. The tool even guides you through operations interactively - for example, it warns about divergence with upstream when pushing and lets you choose between force push or cancel.
 
 ## mise-en-place - Polyglot tool version manager
 
-[mise](https://mise.jdx.dev/?ref=larsp.de) is a tool that manages installations of programming language runtimes and other tools for local development. For example, it can be used to manage multiple versions of Node.js, Python, Ruby, Go, etc. on the same machine.
+[mise](https://mise.jdx.dev/) is a tool that manages installations of programming language runtimes and other tools for local development. For example, it can be used to manage multiple versions of Node.js, Python, Ruby, Go, etc. on the same machine.
 
 ## ohmyzsh - Delightful framework for managing your zsh configuration
 
-[ohmyzsh](https://ohmyz.sh/?ref=larsp.de) transforms the already powerful `zsh` into a feature-rich and stylish terminal environment. With themes, plugins, and an active community contributing enhancements, ohmyzsh makes the terminal experience more personal and productive.
+[ohmyzsh](https://ohmyz.sh/) transforms the already powerful `zsh` into a feature-rich and stylish terminal environment. With themes, plugins, and an active community contributing enhancements, ohmyzsh makes the terminal experience more personal and productive.
 
 ohmyzsh also comes packed with a variety of plugins that add new features to `zsh`, such as an auto-suggestion tool and syntax highlighting, making it even more powerful. These can be easily enabled or disabled through the `~/.zshrc` file as well.
 
@@ -151,7 +151,7 @@ Getting along well with ohmyzsh, this tool offers context-aware auto-completion,
 
 ## rbenv - Ruby Version Manager
 
-For managing multiple Ruby environments, [rbenv](https://rbenv.org/?ref=larsp.de) is vital. It allows for per-project Ruby versions, which is a blessing when working on legacy software that demands older Ruby interpreters alongside the current releases.
+For managing multiple Ruby environments, [rbenv](https://rbenv.org/) is vital. It allows for per-project Ruby versions, which is a blessing when working on legacy software that demands older Ruby interpreters alongside the current releases.
 
 ### Install a Ruby version
 

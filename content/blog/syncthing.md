@@ -21,13 +21,13 @@ Also, sometimes iCloud is not updating at all for some reason.
 
 ## Enter Syncthing
 
-Yesterday, I was fed up with this and installed [Syncthing](https://github.com/syncthing/syncthing?ref=larsp.de) on my Macs. It's a free, open-source file synchronization software that works on all major platforms and works really smoothly. I used it in the past already, and never had a problem.
+Yesterday, I was fed up with this and installed [Syncthing](https://github.com/syncthing/syncthing) on my Macs. It's a free, open-source file synchronization software that works on all major platforms and works really smoothly. I used it in the past already, and never had a problem.
 
 ### iOS
 
-For iOS, there is a very good open source client app called [Synctrain](https://apps.apple.com/de/app/synctrain/id6553985316?ref=larsp.de). There's also an older third party solution ([MöbiusSync](https://www.mobiussync.com/?ref=larsp.de)), but I'd recommend Synctrain because it's much smoother.
+For iOS, there is a very good open source client app called [Synctrain](https://apps.apple.com/de/app/synctrain/id6553985316). There's also an older third party solution ([MöbiusSync](https://www.mobiussync.com/)), but I'd recommend Synctrain because it's much smoother.
 
-There is a [goals document](https://github.com/syncthing/syncthing/blob/main/GOALS.md?ref=larsp.de) describing Syncthing if you're interested.
+There is a [goals document](https://github.com/syncthing/syncthing/blob/main/GOALS.md) describing Syncthing if you're interested.
 
 ### Linux install
 

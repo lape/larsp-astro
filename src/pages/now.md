@@ -3,23 +3,26 @@ layout: ../layouts/AboutLayout.astro
 title: "Now"
 ---
 
-Inspired by [Derek Sivers](https://sive.rs/now/). A snapshot of what I am
-currently up to.
+Inspired by [Derek Sivers](https://sive.rs/now/). A snapshot of what I am currently up to.
 
-_Last updated: 19 April 2026_
+_Last updated: 20 April 2026_
 
 ## Working on
 
-- Migrating a complex application database/API system from several Drupal
-  sites and custom PHP to a [Ruby on Rails](/tags/ruby-on-rails/) solution
-  based on Jumpstart Pro
-- Developing Apache Solr powered facetted event search for a travel portal
+- Building and extending a SaaS debt collection platform with accounting API integrations, credit agency lookups, and automated monitoring
+- Evaluating AI voice agents for sales training using OpenAI's Realtime API with telephony integration
+- Migrating CMS-based websites from Ghost to [Astro](https://astro.build/) — just completed this blog, company site is next
+- Developing Apache Solr powered faceted event search and an AI content assistant for a travel portal
+- Maintaining IVR and telephony systems on Asterisk
+- Automating server infrastructure with Ansible
+- Using [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) as an AI-powered project management assistant — it reads my project files, syncs task boards, writes briefings, and answers emails
 
 ## Learning
 
-- Spanish
+- Dutch
+- Padel 🎾
 
 ## Reading
 
-- [A Brief History of Intelligence](https://www.abriefhistoryofintelligence.com/book)
-  by Max Bennett
+- Sapiens: A Brief History of Humankind by Yuval Noah Harari
+- A Brief History of Intelligence by Max Bennett

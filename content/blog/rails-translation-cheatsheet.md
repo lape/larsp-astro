@@ -49,7 +49,7 @@ end
 
 ## Field translation
 
-[Translatable columns for Ruby on Rails, stored in the model table itself](https://github.com/barsoom/traco?ref=larsp.de)
+[Translatable columns for Ruby on Rails, stored in the model table itself](https://github.com/barsoom/traco)
 
 ```ruby
 # Gemfile
