@@ -2,6 +2,7 @@ import satori from "satori";
 // import { html } from "satori-html";
 import { SITE } from "@/config";
 import loadGoogleFonts from "../loadGoogleFont";
+import { FAVICON_DATA_URI } from "./favicon";
 
 // const markup = html`<div
 //       style={{
@@ -202,8 +203,24 @@ export default async post => {
                           {
                             type: "span",
                             props: {
-                              style: { overflow: "hidden", fontWeight: "bold" },
-                              children: SITE.title,
+                              style: {
+                                display: "flex",
+                                alignItems: "center",
+                                overflow: "hidden",
+                                fontWeight: "bold",
+                              },
+                              children: [
+                                {
+                                  type: "img",
+                                  props: {
+                                    src: FAVICON_DATA_URI,
+                                    width: 30,
+                                    height: 30,
+                                    style: { marginRight: "8px" },
+                                  },
+                                },
+                                SITE.title,
+                              ],
                             },
                           },
                         ],

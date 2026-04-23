@@ -1,6 +1,7 @@
 import satori from "satori";
 import { SITE } from "@/config";
 import loadGoogleFonts from "../loadGoogleFont";
+import { FAVICON_DATA_URI } from "./favicon";
 
 export default async () => {
   return satori(
@@ -74,6 +75,15 @@ export default async () => {
                           textAlign: "center",
                         },
                         children: [
+                          {
+                            type: "img",
+                            props: {
+                              src: FAVICON_DATA_URI,
+                              width: 100,
+                              height: 100,
+                              style: { marginBottom: "20px" },
+                            },
+                          },
                           {
                             type: "p",
                             props: {
