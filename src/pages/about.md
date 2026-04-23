@@ -5,7 +5,7 @@ title: "About"
 
 I'm Lars, a web software developer and consultant from Germany.
 
-I specialize in building and operating web applications wit [Ruby on Rails](/posts/ruby-on-rails-resources/) and other frameworks, as well as telephony applications (IVR) built on [FreeSWITCH](https://freeswitch.com/) and [Asterisk](https://www.asterisk.org/).
+I specialize in building and operating web applications with [Ruby on Rails](/posts/ruby-on-rails-resources/) and other frameworks, as well as telephony applications (IVR) built on [FreeSWITCH](https://freeswitch.com/) and [Asterisk](https://www.asterisk.org/).
 Most of my work runs on self-hosted infrastructure using [Dokku](/posts/dokku-open-source-heroku-alternative/) and [Ansible](https://www.ansible.com/).
 
 This site is a digital garden — a growing, opinionated collection of notes, learnings, and tools I find useful. Expect posts on Ruby, Rails, AI, CLI tools, self-hosting, and the occasional tangent.

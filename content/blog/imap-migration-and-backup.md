@@ -6,8 +6,6 @@ description: "Notes on moving mail between servers and keeping local backups. Th
 tags: ["Tools"]
 ---
 
-Tools for working with IMAP accounts.
-
 Notes on moving mail between servers and keeping local backups.
 
 ## imapsync

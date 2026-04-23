@@ -2,7 +2,8 @@
 title: "Favorite CLI Tools"
 author: "Lars Peters"
 pubDatetime: 2025-11-12T00:00:00Z
-description: "Command line tool recommendations that save time and improve developer workflows. A curated collection of CLI tools including bat, HTTPie, jq, and others that I find essential for daily work."
+modDatetime: 2026-04-23T00:00:00Z
+description: "Command line tool recommendations that save time and improve developer workflows. A curated collection of CLI tools including bat, HTTPie, jq, restic, ripgrep, and others that I find essential for daily work."
 tags: ["Tools", "Resources"]
 ---
 
@@ -27,6 +28,25 @@ The syntax highlighting and file-specific metadata make `bat` a joy to use, ensu
 ## Claude Code
 
 Even though it's more application than classic tool, my favorite command line tool has recently become [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) (also see [AI/LLM index page](/posts/ai-llm-resources/)).
+
+## ddrescue - Data Recovery from Failing Drives
+
+When a hard drive starts dying, every read attempt matters. [GNU ddrescue](https://www.gnu.org/software/ddrescue/) is the tool you want in that situation. Unlike plain `dd`, it's specifically designed for damaged media — it rescues the good data first, then retries the bad sectors, and keeps a map file so you can pause and resume.
+
+### Typical rescue workflow
+
+```bash
+# First pass: grab everything that reads easily
+ddrescue /dev/sda backup.img backup.map
+
+# Second pass: retry failed sectors (3 attempts each)
+ddrescue -d -r3 /dev/sda backup.img backup.map
+
+# Write recovered image to a new drive
+ddrescue backup.img /dev/sdb restore.map
+```
+
+The map file is the key feature — it means you can unplug, let the drive cool down, and pick up exactly where you left off. I hope you never need this tool, but when you do, nothing else comes close.
 
 ## Homebrew - The missing macOS package manager
 
@@ -86,34 +106,32 @@ https httpie.io/hello | jq "{links}"
 
 This will present just the links from the JSON response. `jq` is nice for quickly juggling JSON data.
 
-## kopia - Fast and Secure Open-Source Backup Software
+## just - A Modern Command Runner
 
-Encrypted backups with [kopia](https://kopia.io/) to Amazon S3 and any cloud storage that is compatible with S3, Azure Blob Storage, Backblaze B2, Google Cloud Storage, WebDAV, SFTP, Rclone.
+[just](https://github.com/casey/just) is what `make` should have been — a command runner without the build system baggage. Define project-specific shortcuts in a `justfile` and stop memorizing long commands.
 
-### Creating a repository (e.g. SFTP)
+### Example justfile
 
-```bash
-kopia repository create sftp \
-      --path=... \
-      --host=... \
-      --username=... \
-      --sftp-password=...
+```just
+# List available commands
+default:
+  @just --list
+
+# Run the dev server
+run:
+  ./bin/dev
+
+# Run all tests
+test:
+  ./bin/rails test
+  ./bin/rails test:system
+
+# Deploy to a specific environment
+deploy env:
+  ./deploy.sh {{env}}
 ```
 
-### Connecting to a repository
-
-```bash
-kopia repository connect sftp \
-      --path=... \
-      --host=... \
-      --username=...
-```
-
-### Creating a snapshot
-
-```bash
-kopia snapshot create $HOME/Projects/github.com/kopia/kopia
-```
+No tab-vs-spaces headaches, proper error messages, and cross-platform support. It's one of those tools where you wonder how you ever lived without it.
 
 ## lando - Local development environment and DevOps tool built on Docker containers
 
@@ -139,15 +157,34 @@ It reduces context switching. Instead of running multiple commands and checking 
 
 [mise](https://mise.jdx.dev/) is a tool that manages installations of programming language runtimes and other tools for local development. For example, it can be used to manage multiple versions of Node.js, Python, Ruby, Go, etc. on the same machine.
 
+But it goes beyond runtimes — mise also installs CLI tools from cargo, npm, aqua, and other backends. Here's my global `~/.config/mise/config.toml`:
+
+```toml
+[tools]
+ruby = "latest"
+bun = "latest"
+node = "24"
+python = "latest"
+rust = "latest"
+lazygit = "latest"
+glab = "latest"
+pipx = "latest"
+"cargo:ripgrep" = "latest"
+"cargo:bat" = "latest"
+"cargo:eza" = "latest"
+"aqua:cli/cli" = "latest"            # gh
+"aqua:casey/just" = "latest"         # just
+"aqua:restic/restic" = "latest"      # restic
+"npm:yarn" = "latest"                # yarn
+```
+
+One `mise install` on a fresh machine and everything is ready. No more hunting down individual install commands.
+
 ## ohmyzsh - Delightful framework for managing your zsh configuration
 
 [ohmyzsh](https://ohmyz.sh/) transforms the already powerful `zsh` into a feature-rich and stylish terminal environment. With themes, plugins, and an active community contributing enhancements, ohmyzsh makes the terminal experience more personal and productive.
 
 ohmyzsh also comes packed with a variety of plugins that add new features to `zsh`, such as an auto-suggestion tool and syntax highlighting, making it even more powerful. These can be easily enabled or disabled through the `~/.zshrc` file as well.
-
-## zsh-autosuggestions
-
-Getting along well with ohmyzsh, this tool offers context-aware auto-completion, predicting your command line moves, and saving keystrokes in the process. Start by typing a command and, based on your history, zsh-autosuggestions will begin offering predictions. You can cycle through suggestions with the right arrow key or accept one with the tab key.
 
 ## rbenv - Ruby Version Manager
 
@@ -180,3 +217,76 @@ rbenv global 3.4.3
 ```
 
 This indicates that generally Ruby 3.4.3 should be used, while local projects can specify a different version in their `.ruby-version` file. When executing `bundle` command, or any other code that requires a Ruby environment, rbenv will use the specified or else the global version.
+
+## restic - Encrypted, Deduplicated Backups
+
+[restic](https://github.com/restic/restic) is a fast and secure backup tool written in Go. Everything is encrypted end-to-end, snapshots are deduplicated, and it supports local storage, SFTP, S3, Backblaze B2, and many more backends. It's the tool I trust with my data.
+
+### Getting started
+
+```bash
+# Initialize a backup repository
+restic init -r /path/to/backup
+
+# Create a snapshot
+restic backup ~/sync --tag daily
+
+# List all snapshots
+restic snapshots
+
+# Restore a specific file
+restic restore latest --target /tmp/restore \
+    --include "/home/user/sync/important-file.md"
+```
+
+### Browsing snapshots with FUSE
+
+This is my favorite feature — mount the entire backup history as a filesystem and browse through it:
+
+```bash
+restic mount /tmp/restic-mount
+# In another terminal: ls /tmp/restic-mount/snapshots/
+# Copy, less, diff — whatever you need
+fusermount -u /tmp/restic-mount
+```
+
+### Retention policy
+
+```bash
+restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
+```
+
+Restic handles deduplication at the chunk level, so even large repositories stay surprisingly compact. Combined with a cron job, it's a fire-and-forget backup solution.
+
+## ripgrep - Recursively search directories with speed
+
+[ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`) is grep, but fast. Really fast. It respects `.gitignore` by default, supports Unicode, and handles large codebases without breaking a sweat.
+
+### Everyday usage
+
+```bash
+# Search the current directory
+rg "pattern"
+
+# Only certain file types
+rg "pattern" -t ruby
+rg "pattern" -t php
+
+# List files with matches (no content)
+rg -l "pattern"
+
+# Show context (2 lines before and after)
+rg -B 2 -A 2 "pattern"
+
+# Exclude files
+rg "pattern" -g '!*.min.js'
+
+# Case-insensitive search
+rg -i "pattern"
+```
+
+Once you start using `rg`, plain `grep` feels like dial-up internet. It's one of those tools that becomes muscle memory within a day.
+
+## zsh-autosuggestions
+
+Getting along well with ohmyzsh, this tool offers context-aware auto-completion, predicting your command line moves, and saving keystrokes in the process. Start by typing a command and, based on your history, zsh-autosuggestions will begin offering predictions. You can cycle through suggestions with the right arrow key or accept one with the tab key.
