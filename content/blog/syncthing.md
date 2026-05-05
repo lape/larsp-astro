@@ -9,11 +9,11 @@ tags: ["Tools"]
 
 The best (IMHO) multi-platform open-source file synchronization solution.
 
-As much I wanted it to work, iCloud file synchronization used to give me headaches. I work with two Macs - one Mini in the office, and a MacBook on the go. In addition, I'm using a large iPad Pro and an older, small iPad Pro for traveling. My work files, mostly Git repositories of projects I am working on and additional reference material, should be shared across all these devices. I tried to use iCloud for this, but it was always a pain to get it to work reliably. I also used Dropbox in the past, but moved away after they went the course of integration everything and whatnot in their software. Also, it was a resource hog.
+As much as I wanted it to work, iCloud file synchronization used to give me headaches. I work with two Macs - one Mini in the office, and a MacBook on the go. In addition, I'm using a large iPad Pro and an older, small iPad Pro for traveling. My work files, mostly Git repositories of projects I am working on and additional reference material, should be shared across all these devices. I tried to use iCloud for this, but it was always a pain to get it to work reliably. I also used Dropbox in the past, but moved away after they went the course of integrating everything and whatnot in their software. Also, it was a resource hog.
 
 The problem with iCloud is that you don't really know what's going on. It's a black box. You can't see what's happening, and you can't really control it. When the service thinks your files might have been changed on another device, it will create a copy of the file with a suffix " 2". Sometimes this happens for hundreds of files in a folder, and I resorted to just deleting them with:
 
-```
+```bash
 find . -name "*\ 2" -delete
 ```
 
@@ -31,21 +31,25 @@ There is a [goals document](https://github.com/syncthing/syncthing/blob/main/GOA
 
 ### Linux install
 
-```
+```bash
 sudo apt install syncthing
-sudo systemctl enable syncthing@lape.service
-sudo systemctl start syncthing@lape.service
+sudo systemctl enable syncthing@$USER.service
+sudo systemctl start syncthing@$USER.service
 ```
+
+The web GUI is then available at <http://localhost:8384>.
 
 ### CLI commands
 
-```
+```bash
 syncthing cli config devices add --device-id ...
 syncthing cli config options relays-enabled set false
 find . -name "*sync-conflict*" -print
 ```
 
 ### Files to ignore
+
+Place the following in a `.stignore` file inside the synced folder to keep platform-specific cruft out of the sync:
 
 ```
 (?d).DS_Store

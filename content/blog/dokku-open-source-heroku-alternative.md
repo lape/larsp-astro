@@ -11,18 +11,18 @@ Dokku is a self-hosted open-source PaaS similar to Heroku.
 
 My favorite hosting solution for several years. It's lightweight, open-source and really stable. There are two general modes of operation: Buildpacks (e.g. Herokuish) and Dockerfiles.
 
-On a freshly installed Linux machine, after installing Dokku you can push to Git repos on the server, and a container will be build and started for your app, with Nginx as a reverse proxy running in front of everything.
+On a freshly installed Linux machine, after installing Dokku you can push to Git repos on the server, and a container will be built and started for your app, with Nginx as a reverse proxy running in front of everything.
 
 ## Installation
 
-### Linux
+### Linux (Debian/Ubuntu)
 
 ```bash
 # download the installation script
 wget -NP . https://dokku.com/bootstrap.sh
 
 # run the installer
-sudo DOKKU_TAG=v0.35.18 bash bootstrap.sh
+sudo bash bootstrap.sh
 ```
 
 ### Mac (Homebrew)
@@ -37,6 +37,36 @@ brew install dokku/repo/dokku
 - [dokku-mariadb](https://github.com/dokku/dokku-mariadb) - MariaDB plugin
 - [dokku-postgres](https://github.com/dokku/dokku-postgres) - PostgreSQL plugin
 - [dokku-redirect](https://github.com/dokku/dokku-redirect) - Simple redirects for applications
+
+Plugins are installed from the server with:
+
+```bash
+sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+```
+
+## Deploying an app
+
+Create the app on the server:
+
+```bash
+dokku apps:create myapp
+```
+
+Then, from your local repo, add the server as a Git remote and push:
+
+```bash
+git remote add dokku dokku@your-server.example.com:myapp
+git push dokku main
+```
+
+### Let's Encrypt
+
+After the app is reachable on its domain:
+
+```bash
+dokku letsencrypt:set myapp email you@example.com
+dokku letsencrypt:enable myapp
+```
 
 ## General config settings
 
@@ -77,7 +107,7 @@ Redirect www to non-www using [dokku-redirect](https://github.com/dokku/dokku-re
 
 ```bash
 dokku redirect:set larsp www.larsp.de larsp.de
------> Configuring redirect for www.larsp.de to larsp.de via HTTP 301...
+# -----> Configuring redirect for www.larsp.de to larsp.de via HTTP 301...
 ```
 
 ## Ruby on Rails
@@ -97,7 +127,7 @@ dokku config:set myrailsapp \
 
 In case there is a problem with the PHP buildpack:
 
-```
+```text
 /tmp/buildpacks/08_buildpack-php/bin/compile: line 236: /tmp/buildpacks/08_buildpack-php/support/build/_util/formulae-hash.sh: No such file or directory
 ```
 
