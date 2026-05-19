@@ -5,7 +5,7 @@ title: "Now"
 
 Inspired by [Derek Sivers](https://sive.rs/now/). A snapshot of what I am currently up to.
 
-_Last updated: 20 April 2026_
+_Last updated: 19 May 2026_
 
 ## Working on
 
@@ -15,7 +15,7 @@ _Last updated: 20 April 2026_
 - Developing Apache Solr powered faceted event search and an AI content assistant for a travel portal
 - Maintaining IVR and telephony systems on Asterisk
 - Automating server infrastructure with Ansible
-- Using [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) as an AI-powered project management assistant — it reads my project files, syncs task boards, writes briefings, and answers emails
+- Running [Clara](/posts/clara-claude-code-secretary/), a [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) setup that reads my project files, syncs task boards, writes briefings, and answers emails
 
 ## Learning
 

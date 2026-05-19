@@ -2,7 +2,7 @@
 title: "AI/LLM Resources"
 author: "Lars Peters"
 pubDatetime: 2025-10-18T00:00:00Z
-modDatetime: 2026-04-19T00:00:00Z
+modDatetime: 2026-05-19T00:00:00Z
 description: "A curated collection of artificial intelligence and large language model resources, including Claude Code tools, plugins, MCP servers, spec-driven workflows and Ruby/Rails AI frameworks."
 tags: ["Resources", "AI"]
 ---
@@ -16,11 +16,12 @@ Collection of Artificial Intelligence / LLM resources I actually use day to day.
 - [CLI reference](https://docs.anthropic.com/en/docs/claude-code/cli-reference)
 - [Interesting uses, e.g. let Claude generate a presentation of your codebase with Marp](https://kadekillary.work/blog/#2025-06-16-snorting-the-agi-with-claude-code)
 - [Roadmap management with Claude Code](https://benenewton.com/blog/claude-code-roadmap-management)
+- [Building Clara: a Claude Code setup for running a consultancy](/posts/clara-claude-code-secretary/) — my own workflow: PARA-style markdown repo, custom persona, MCP servers and a few cron jobs.
 
 ### Plugins & extensions
 
-- [Ralph Wiggum plugin](https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum) — a Stop-hook that catches Claude trying to exit and feeds the same prompt back in. Useful for iterative tasks with clear success criteria ("all tests green") where you want the agent to keep grinding until it's done.
 - [Codex plugin for Claude Code](https://github.com/openai/codex-plugin-cc) — makes OpenAI's Codex available from inside Claude Code. Handy for a second opinion (`/codex:review`, `/codex:adversarial-review`) or for delegating background tasks (`/codex:rescue`).
+- [Claude for Legal](https://github.com/anthropics/claude-for-legal) — Anthropic's plugin suite for legal workflows (commercial, corporate, employment, privacy, IP, litigation, regulatory, AI governance). 100+ named agents that draft, triage and review documents, with MCP connectors for CourtListener, Westlaw, Ironclad, iManage and others. Every output is framed as a draft for attorney review. A good template for what a domain-specific Claude Code plugin pack can look like.
 
 ### Spec-driven workflows
 
