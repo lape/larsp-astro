@@ -1,7 +1,7 @@
 ---
 title: "Building Clara: a Claude Code setup for running a consultancy"
 author: "Lars Peters"
-pubDatetime: 2026-05-19T12:00:00Z
+pubDatetime: 2026-05-19T08:00:00Z
 description: "How I use Claude Code, a PARA-style markdown repo and a custom persona to run my consultancy day-to-day."
 tags: ["AI", "Tools"]
 ---
