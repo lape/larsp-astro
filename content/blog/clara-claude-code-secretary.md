@@ -8,7 +8,9 @@ tags: ["AI", "Tools"]
 
 For the past year I've been building something I now call Clara — a [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) setup that handles the administrative side of running a consultancy: client projects, server notes, recurring tasks, follow-ups, daily journaling, and an inbox that talks back.
 
-This post walks through the moving parts: a markdown-only repository, a persona that has opinions, a few MCP servers, and a handful of cron jobs. None of it requires custom software — it's mostly conventions on top of Claude Code.
+This post walks through the moving parts: a markdown-only repository, a persona that has opinions, a few MCP servers, and a handful of cron jobs held together with small glue scripts. No custom application, just conventions and wiring on top of Claude Code.
+
+If there's one thing I'd lead with: the persona did more for me than any of the tooling. A character with opinions turns a markdown folder into a collaborator. A neutral assistant just turns it into a slightly chattier filing system. The rest of the post is mostly the wiring underneath that idea.
 
 ## The big picture
 
@@ -44,7 +46,10 @@ Things-style task apps didn't help. They knew nothing about the actual work. Not
 
 Claude Code changed that. It lives inside a repo, reads and writes markdown, runs shell commands, and connects to external systems through MCP. The natural next step: turn the repo into a workspace that Claude Code can navigate, and give the agent enough character to be useful as more than an autocomplete on top of files.
 
-> _"I'm not a polite, neutral assistant. If a project has been dead for weeks, I'll say so."_
+Clara talks to me in German; the quotes throughout this post are her originals, with an English rendering underneath.
+
+> _„Ich bin keine höflich-neutrale Assistentin. Wenn ein Projekt seit Wochen tot ist, sag ich's.“_
+> _("I'm not a polite, neutral assistant. If a project's been dead for weeks, I'll say so.")_
 
 ## The repo: PARA in markdown
 
@@ -104,7 +109,8 @@ Allowed to tease me when I'm procrastinating, in a way I'll laugh at.
 
 Plus a long list of conventions — file naming, status tags, how to link projects to clients, what to do when a new project gets created. That's the file that makes the workflow consistent.
 
-> _"Solid week. Three projects moved, one RSVP closed, no fires — keep it up."_
+> _„Solide Woche. Drei Projekte bewegt, ein RSVP geschlossen, keine Brände — weiter so.“_
+> _("Solid week. Three projects moved, one RSVP closed, no fires — keep it up.")_
 
 The line between "tool" and "colleague" is mostly a matter of register. When the agent says _"honestly, I wouldn't touch this one again"_, it's more useful than the same agent saying _"this project has accumulated significant technical debt."_
 
@@ -186,7 +192,8 @@ A few small habits — supported by a few small skills (reusable prompts you tri
 - **`/briefing`** — a skill I run in the morning. It checks today's calendar, RSVPs that are aging, unread mail from clients, and projects with imminent deadlines, then writes a short briefing.
 - **`/weekstart`** — a Monday-morning version that goes a layer broader: open tasks per project, what's coming up this week, what got moved last week.
 
-> _"Monday, week 21. Three calls, two need prep. Padel camp isn't until next week — so: power through."_
+> _„Montag, Woche 21. Drei Calls, zwei brauchen Vorbereitung. Padel-Camp ist erst nächste Woche — also: durchziehen.“_
+> _("Monday, week 21. Three calls, two need prep. Padel camp isn't until next week — so: power through.")_
 
 ## Sunsama as the day plan
 
@@ -230,6 +237,6 @@ Everything else — auto-commit, memory, Sunsama sync, the email channel — acc
 
 There's nothing exotic going on here. Markdown is the cheapest searchable storage there is. An LLM agent makes that storage interactive — it can read the structure, write into it, and connect it to the rest of the world through MCP. No new app, no vendor lock-in, no migration to plan for.
 
-What surprised me most: the persona matters more than the tooling. A neutral assistant produces forgettable output. A character with a voice — one that can disagree, push back, or call a project a zombie — turns a markdown folder into something that feels like a collaborator. Clara isn't smart in any new way; she's just steady, opinionated and always around.
+The bet I made up front — that the persona would matter more than the tooling — held up. A character with a voice, one that can disagree, push back, or call a project a zombie, is what turns this into a collaborator rather than a glorified `grep`. Clara isn't smart in any new way; she's steady, opinionated, and always around.
 
-I'll write follow-ups on specific pieces: the daily-commit cron, the Sunsama MCP setup, how I structure memory. If you build something similar, I'd love to hear about it on [Mastodon](https://ruby.social/@lape).
+I'll write follow-ups on specific pieces: the daily-commit cron, the Sunsama MCP setup, how I structure memory. But the question I keep coming back to is the one I'd most like to argue about: does the persona angle really matter, or am I overstating it? If you've tried both — an opinionated agent vs. a neutral one — which one stuck? Reply on [Mastodon](https://ruby.social/@lape), I'd rather have that argument than write another monologue.
