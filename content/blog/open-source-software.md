@@ -3,7 +3,7 @@ title: "Open Source Software"
 author: "Lars Peters"
 pubDatetime: 2026-01-21T00:00:00Z
 description: "A curated collection of excellent open source web applications organized by category, including tools for chat, content management, development, document handling, home automation, hosting, email, project management, and task tracking."
-tags: ["Software"]
+tags: ["Software", "Resources"]
 ---
 
 Recommendable (web) applications
@@ -33,7 +33,7 @@ Recommendable (web) applications
 
 ## Hosting
 
-- **[Databasus](https://databasus.com/)** - Free tool for PostgreSQL scheduled backups with cloud storage and notifications
+- **[Databasus](https://github.com/databasus/databasus)** - Free tool for scheduled database backups (PostgreSQL, MySQL/MariaDB, MongoDB) with cloud storage and notifications
 - **[Dokku](/posts/dokku-open-source-heroku-alternative/)** - Self-hosted open-source PaaS alternative to Heroku
 - **[copyparty](https://github.com/9001/copyparty)** - Portable file server with WebDAV, FTP, TFTP, and media indexing
 
@@ -44,6 +44,10 @@ Recommendable (web) applications
 ## Project Management
 
 - **[OpenProject](https://www.openproject.org/)** - Open source project management with task management, Gantt charts, boards, and team collaboration
+
+## Sync
+
+- **[Syncthing](/posts/syncthing/)** - Multi-platform open-source file synchronization, a transparent alternative to iCloud and Dropbox
 
 ## Tasks
 
