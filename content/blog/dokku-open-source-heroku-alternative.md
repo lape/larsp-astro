@@ -2,6 +2,7 @@
 title: "Dokku: Open source Heroku alternative"
 author: "Lars Peters"
 pubDatetime: 2025-06-16T00:00:00Z
+modDatetime: 2026-06-30T00:00:00Z
 description: "Dokku is a self-hosted open-source Platform as a Service similar to Heroku. It's lightweight, stable, and supports both Buildpacks and Dockerfiles for application deployment."
 ogImage: "/images/posts/dokku-open-source-heroku-alternative/dokku-hero.png"
 tags: ["Hosting", "Tools"]
@@ -17,12 +18,14 @@ On a freshly installed Linux machine, after installing Dokku you can push to Git
 
 ### Linux (Debian/Ubuntu)
 
-```bash
-# download the installation script
-wget -NP . https://dokku.com/bootstrap.sh
+Dokku runs on Ubuntu 22.04/24.04 or Debian 11+ (amd64 and arm64). The bootstrap script is now versioned - grab the [latest release](https://github.com/dokku/dokku/releases) and pin the same tag for the installer:
 
-# run the installer
-sudo bash bootstrap.sh
+```bash
+# download the bootstrap script for a specific release
+wget -NP . https://dokku.com/install/v0.38.19/bootstrap.sh
+
+# run the installer, pinning the same version via DOKKU_TAG
+sudo DOKKU_TAG=v0.38.19 bash bootstrap.sh
 ```
 
 ### Mac (Homebrew)
@@ -34,8 +37,9 @@ brew install dokku/repo/dokku
 ### Plugins
 
 - [dokku-letsencrypt](https://github.com/dokku/dokku-letsencrypt) - Automatic Let's Encrypt TLS Certificate installation
-- [dokku-mariadb](https://github.com/dokku/dokku-mariadb) - MariaDB plugin
 - [dokku-postgres](https://github.com/dokku/dokku-postgres) - PostgreSQL plugin
+- [dokku-mariadb](https://github.com/dokku/dokku-mariadb) - MariaDB plugin
+- [dokku-redis](https://github.com/dokku/dokku-redis) - Redis plugin
 - [dokku-redirect](https://github.com/dokku/dokku-redirect) - Simple redirects for applications
 
 Plugins are installed from the server with:
@@ -68,6 +72,12 @@ dokku letsencrypt:set myapp email you@example.com
 dokku letsencrypt:enable myapp
 ```
 
+Certificates are only valid for 90 days, so add the cron job once to auto-renew them across all apps:
+
+```bash
+dokku letsencrypt:cron-job --add
+```
+
 ## General config settings
 
 ### Change deploy branch
@@ -78,8 +88,10 @@ dokku git:set deploy-branch main
 
 ### Timezone
 
+Set it globally for all apps, or drop `--global` and pass an app name to scope it:
+
 ```bash
-dokku config:set TZ=Europe/Berlin
+dokku config:set --global TZ=Europe/Berlin
 ```
 
 ## Nginx settings
@@ -87,14 +99,14 @@ dokku config:set TZ=Europe/Berlin
 ### Disable HSTS header
 
 ```bash
-dokku nginx:set hsts false
+dokku nginx:set myapp hsts false
 dokku proxy:build-config
 ```
 
 ### Max upload size
 
 ```bash
-dokku nginx:set sitename client-max-body-size 25m
+dokku nginx:set myapp client-max-body-size 25m
 ```
 
 ### Rate limiting

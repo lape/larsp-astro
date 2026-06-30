@@ -31,13 +31,20 @@ const { title, description, tags, ...props } = data;
   </a>
   <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
     <Datetime {...props} />
-    {tags.length > 0 && (
-      <ul class="flex flex-wrap gap-x-3 gap-y-1">
-        {tags.map(tagName => (
-          <Tag tag={slugifyStr(tagName)} {tagName} size="sm" underline={false} />
-        ))}
-      </ul>
-    )}
+    {
+      tags.length > 0 && (
+        <ul class="flex flex-wrap gap-x-3 gap-y-1">
+          {tags.map(tagName => (
+            <Tag
+              tag={slugifyStr(tagName)}
+              {tagName}
+              size="sm"
+              underline={false}
+            />
+          ))}
+        </ul>
+      )
+    }
   </div>
   <p>{description}</p>
 </li>
